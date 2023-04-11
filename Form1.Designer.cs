@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             label1 = new Label();
+            inventoryGridView = new DataGridView();
+            newButton = new Button();
+            saveButton = new Button();
+            deleteButton = new Button();
+            ((System.ComponentModel.ISupportInitialize)inventoryGridView).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -42,21 +47,71 @@
             label1.TextAlign = ContentAlignment.MiddleCenter;
             label1.Click += label1_Click;
             // 
+            // inventoryGridView
+            // 
+            inventoryGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            inventoryGridView.BackgroundColor = SystemColors.ButtonFace;
+            inventoryGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            inventoryGridView.Location = new Point(12, 293);
+            inventoryGridView.Name = "inventoryGridView";
+            inventoryGridView.RowTemplate.Height = 25;
+            inventoryGridView.Size = new Size(1241, 439);
+            inventoryGridView.TabIndex = 1;
+            // 
+            // newButton
+            // 
+            newButton.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            newButton.Location = new Point(12, 228);
+            newButton.Name = "newButton";
+            newButton.Size = new Size(343, 59);
+            newButton.TabIndex = 2;
+            newButton.Text = "New";
+            newButton.UseVisualStyleBackColor = true;
+            // 
+            // saveButton
+            // 
+            saveButton.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            saveButton.Location = new Point(462, 228);
+            saveButton.Name = "saveButton";
+            saveButton.Size = new Size(343, 59);
+            saveButton.TabIndex = 3;
+            saveButton.Text = "Save";
+            saveButton.UseVisualStyleBackColor = true;
+            // 
+            // deleteButton
+            // 
+            deleteButton.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            deleteButton.Location = new Point(910, 228);
+            deleteButton.Name = "deleteButton";
+            deleteButton.Size = new Size(343, 59);
+            deleteButton.TabIndex = 4;
+            deleteButton.Text = "Delete";
+            deleteButton.UseVisualStyleBackColor = true;
+            // 
             // InventoryTracker
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DodgerBlue;
             ClientSize = new Size(1265, 744);
+            Controls.Add(deleteButton);
+            Controls.Add(saveButton);
+            Controls.Add(newButton);
+            Controls.Add(inventoryGridView);
             Controls.Add(label1);
             Name = "InventoryTracker";
             Text = "InventoryTracker";
             Load += InventoryTracker_Load;
+            ((System.ComponentModel.ISupportInitialize)inventoryGridView).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Label label1;
+        private DataGridView inventoryGridView;
+        private Button newButton;
+        private Button saveButton;
+        private Button deleteButton;
     }
 }
