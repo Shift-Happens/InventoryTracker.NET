@@ -44,7 +44,7 @@
             label5 = new Label();
             label6 = new Label();
             label7 = new Label();
-            cotegoryBox = new ComboBox();
+            categoryBox = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)inventoryGridView).BeginInit();
             SuspendLayout();
             // 
@@ -69,6 +69,7 @@
             inventoryGridView.RowTemplate.Height = 25;
             inventoryGridView.Size = new Size(1241, 439);
             inventoryGridView.TabIndex = 1;
+            inventoryGridView.CellDoubleClick += inventoryGridView_CellDoubleClick;
             // 
             // newButton
             // 
@@ -79,6 +80,7 @@
             newButton.TabIndex = 2;
             newButton.Text = "New";
             newButton.UseVisualStyleBackColor = true;
+            newButton.Click += newButton_Click;
             // 
             // saveButton
             // 
@@ -89,6 +91,7 @@
             saveButton.TabIndex = 3;
             saveButton.Text = "Save";
             saveButton.UseVisualStyleBackColor = true;
+            saveButton.Click += saveButton_Click;
             // 
             // deleteButton
             // 
@@ -99,6 +102,7 @@
             deleteButton.TabIndex = 4;
             deleteButton.Text = "Delete";
             deleteButton.UseVisualStyleBackColor = true;
+            deleteButton.Click += deleteButton_Click;
             // 
             // eanTextBox
             // 
@@ -189,13 +193,13 @@
             label7.TabIndex = 16;
             label7.Text = "Quantity:";
             // 
-            // cotegoryBox
+            // categoryBox
             // 
-            cotegoryBox.FormattingEnabled = true;
-            cotegoryBox.Location = new Point(903, 138);
-            cotegoryBox.Name = "cotegoryBox";
-            cotegoryBox.Size = new Size(350, 23);
-            cotegoryBox.TabIndex = 17;
+            categoryBox.FormattingEnabled = true;
+            categoryBox.Location = new Point(903, 138);
+            categoryBox.Name = "categoryBox";
+            categoryBox.Size = new Size(350, 23);
+            categoryBox.TabIndex = 17;
             // 
             // InventoryTracker
             // 
@@ -203,7 +207,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DodgerBlue;
             ClientSize = new Size(1265, 744);
-            Controls.Add(cotegoryBox);
+            Controls.Add(categoryBox);
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -246,6 +250,6 @@
         private Label label5;
         private Label label6;
         private Label label7;
-        private ComboBox cotegoryBox;
+        private ComboBox categoryBox;
     }
 }
