@@ -33,18 +33,18 @@
             newButton = new Button();
             saveButton = new Button();
             deleteButton = new Button();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
+            eanTextBox = new TextBox();
+            priceTextBox = new TextBox();
+            descriptionTextBox = new TextBox();
+            nameTextBox = new TextBox();
+            quantityTextBox = new TextBox();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
             label7 = new Label();
+            cotegoryBox = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)inventoryGridView).BeginInit();
             SuspendLayout();
             // 
@@ -100,47 +100,40 @@
             deleteButton.Text = "Delete";
             deleteButton.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // eanTextBox
             // 
-            textBox1.Location = new Point(12, 139);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(350, 23);
-            textBox1.TabIndex = 5;
+            eanTextBox.Location = new Point(12, 139);
+            eanTextBox.Name = "eanTextBox";
+            eanTextBox.Size = new Size(350, 23);
+            eanTextBox.TabIndex = 5;
             // 
-            // textBox2
+            // priceTextBox
             // 
-            textBox2.Location = new Point(12, 187);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(350, 23);
-            textBox2.TabIndex = 6;
+            priceTextBox.Location = new Point(12, 187);
+            priceTextBox.Name = "priceTextBox";
+            priceTextBox.Size = new Size(350, 23);
+            priceTextBox.TabIndex = 6;
             // 
-            // textBox3
+            // descriptionTextBox
             // 
-            textBox3.Location = new Point(466, 187);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(350, 23);
-            textBox3.TabIndex = 8;
+            descriptionTextBox.Location = new Point(466, 187);
+            descriptionTextBox.Name = "descriptionTextBox";
+            descriptionTextBox.Size = new Size(350, 23);
+            descriptionTextBox.TabIndex = 8;
             // 
-            // textBox4
+            // nameTextBox
             // 
-            textBox4.Location = new Point(466, 139);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(350, 23);
-            textBox4.TabIndex = 7;
+            nameTextBox.Location = new Point(466, 139);
+            nameTextBox.Name = "nameTextBox";
+            nameTextBox.Size = new Size(350, 23);
+            nameTextBox.TabIndex = 7;
             // 
-            // textBox5
+            // quantityTextBox
             // 
-            textBox5.Location = new Point(903, 187);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(350, 23);
-            textBox5.TabIndex = 10;
-            // 
-            // textBox6
-            // 
-            textBox6.Location = new Point(903, 139);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(350, 23);
-            textBox6.TabIndex = 9;
+            quantityTextBox.Location = new Point(903, 187);
+            quantityTextBox.Name = "quantityTextBox";
+            quantityTextBox.Size = new Size(350, 23);
+            quantityTextBox.TabIndex = 10;
             // 
             // label2
             // 
@@ -196,24 +189,32 @@
             label7.TabIndex = 16;
             label7.Text = "Quantity:";
             // 
+            // cotegoryBox
+            // 
+            cotegoryBox.FormattingEnabled = true;
+            cotegoryBox.Location = new Point(903, 138);
+            cotegoryBox.Name = "cotegoryBox";
+            cotegoryBox.Size = new Size(350, 23);
+            cotegoryBox.TabIndex = 17;
+            // 
             // InventoryTracker
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DodgerBlue;
             ClientSize = new Size(1265, 744);
+            Controls.Add(cotegoryBox);
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(textBox5);
-            Controls.Add(textBox6);
-            Controls.Add(textBox3);
-            Controls.Add(textBox4);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(quantityTextBox);
+            Controls.Add(descriptionTextBox);
+            Controls.Add(nameTextBox);
+            Controls.Add(priceTextBox);
+            Controls.Add(eanTextBox);
             Controls.Add(deleteButton);
             Controls.Add(saveButton);
             Controls.Add(newButton);
@@ -234,17 +235,17 @@
         private Button newButton;
         private Button saveButton;
         private Button deleteButton;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private TextBox textBox5;
-        private TextBox textBox6;
+        private TextBox eanTextBox;
+        private TextBox priceTextBox;
+        private TextBox descriptionTextBox;
+        private TextBox nameTextBox;
+        private TextBox quantityTextBox;
         private Label label2;
         private Label label3;
         private Label label4;
         private Label label5;
         private Label label6;
         private Label label7;
+        private ComboBox cotegoryBox;
     }
 }
