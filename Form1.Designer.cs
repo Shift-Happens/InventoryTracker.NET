@@ -196,6 +196,7 @@
             // categoryBox
             // 
             categoryBox.FormattingEnabled = true;
+            categoryBox.Items.AddRange(new object[] { "Żywność", "Chemia", "Owoce", "Leki", "Inne" });
             categoryBox.Location = new Point(903, 138);
             categoryBox.Name = "categoryBox";
             categoryBox.Size = new Size(350, 23);
