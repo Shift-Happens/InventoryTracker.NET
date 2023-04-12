@@ -50,12 +50,12 @@
             // 
             // label1
             // 
-            label1.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(12, 9);
             label1.Name = "label1";
-            label1.Size = new Size(1241, 53);
+            label1.Size = new Size(1241, 78);
             label1.TabIndex = 0;
-            label1.Text = "InventoryTracker - Twoje rozwiązanie do zarządzania inwentarzem\r\n";
+            label1.Text = "InventoryTracker - Twoje rozwiązanie do zarządzania inwentarzem\r\n V0.1";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             label1.Click += label1_Click;
             // 

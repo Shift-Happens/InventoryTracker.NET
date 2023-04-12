@@ -29,7 +29,7 @@ namespace InventoryTracker
         //z jakiegoś powodu usunięcie tej funkcji psuje program
         private void label1_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void newButton_Click(object sender, EventArgs e)
@@ -53,10 +53,24 @@ namespace InventoryTracker
             String description = descriptionTextBox.Text;
             String category = (string)categoryBox.SelectedItem;
 
-            // dodanie wartości do tabeli danych
-            inventory.Rows.Add(ean, name, category, price, description, quantity);
+            // Sprawdzenie po indiwidualnym dla produktu kodzie ean, czy dana rzecz już nie istnieje
+            DataRow[] foundRows = inventory.Select("EAN = '" + ean + "'");
+            if (foundRows.Length > 0)
+            {
+                // Aktualizacja istniejącego wpisu
+                foundRows[0]["Name"] = name;
+                foundRows[0]["Category"] = category;
+                foundRows[0]["Price"] = price;
+                foundRows[0]["Description"] = description;
+                foundRows[0]["Quantity"] = quantity;
+            }
+            else
+            {
+                // Dodanie nowego wpisu jeśli nie ma produktu z kodem ean
+                inventory.Rows.Add(ean, name, category, price, description, quantity);
+            }
 
-            // czyszczenie pól po zapisaniu
+            // Clear the input fields
             newButton_Click(sender, e);
         }
 
