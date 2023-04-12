@@ -5,9 +5,10 @@ namespace InventoryTracker
 {
     public partial class InventoryTracker : Form
     {
-
         //inicjalizacja bazy danych
         DataTable inventory = new DataTable();
+
+
         public InventoryTracker()
         {
             InitializeComponent();
@@ -35,24 +36,6 @@ namespace InventoryTracker
             inventoryGridView.DataSource = inventory;
         }
 
-        private void InventoryTracker_Load(object sender, EventArgs e)
-        {
-            //inicjuje kolumny w komponencie DataGridView
-            //inventory.Columns.Add("EAN");
-            //inventory.Columns.Add("Name");
-            //inventory.Columns.Add("Category");
-            //inventory.Columns.Add("Price");
-            //inventory.Columns.Add("Description");
-            //inventory.Columns.Add("Quantity");
-
-            //inventoryGridView.DataSource = inventory;
-        }
-
-        //z jakiegoś powodu usunięcie tej funkcji psuje program
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void newButton_Click(object sender, EventArgs e)
         {
@@ -64,6 +47,7 @@ namespace InventoryTracker
             quantityTextBox.Text = "";
             categoryBox.SelectedIndex = -1;
         }
+
 
         private void saveButton_Click(object sender, EventArgs e)
         {
@@ -103,6 +87,7 @@ namespace InventoryTracker
             newButton_Click(sender, e);
         }
 
+
         private void deleteButton_Click(object sender, EventArgs e)
         {
             //usuwanie wpisu z deklaracją błędu jeśli takowy się pojawi
@@ -115,6 +100,7 @@ namespace InventoryTracker
                 Console.WriteLine("Error while deleting a row: " + err);
             }
         }
+
 
         private void inventoryGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -130,13 +116,24 @@ namespace InventoryTracker
                 String itemToLookFor = inventory.Rows[inventoryGridView.CurrentCell.RowIndex].ItemArray[2].ToString();
                 categoryBox.SelectedIndex = categoryBox.Items.IndexOf(itemToLookFor);
             }
+            // obsługa błędu jeśli takowy się pojawi
             catch (Exception err)
             {
                 Console.WriteLine("There has been an error while trying to load the data for edition: " + err);
             }
         }
 
+
+        //z jakiegoś powodu usunięcie tch funkcji psuje GUI. Niestety nie wiem jak to naprawić
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
         private void instrukcjaLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void InventoryTracker_Load(object sender, EventArgs e)
         {
 
         }

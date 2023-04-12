@@ -58,7 +58,7 @@
             label1.Name = "label1";
             label1.Size = new Size(1241, 33);
             label1.TabIndex = 0;
-            label1.Text = "InventoryTracker - Twoje rozwiązanie do zarządzania inwentarzem V0.14 by Arkadiusz Kubiszewski\r\n";
+            label1.Text = "InventoryTracker - Twoje rozwiązanie do zarządzania inwentarzem V0.16 by Arkadiusz Kubiszewski\r\n";
             label1.TextAlign = ContentAlignment.TopCenter;
             label1.Click += label1_Click;
             // 
@@ -149,7 +149,7 @@
             label2.Name = "label2";
             label2.Size = new Size(350, 23);
             label2.TabIndex = 11;
-            label2.Text = "EAN:";
+            label2.Text = "EAN (unikalne id):  ";
             // 
             // label3
             // 
