@@ -239,6 +239,7 @@
             Controls.Add(newButton);
             Controls.Add(inventoryGridView);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "InventoryTracker";
             Text = "InventoryTracker";
