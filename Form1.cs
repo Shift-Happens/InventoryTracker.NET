@@ -92,14 +92,14 @@ namespace InventoryTracker
                 inventory.Rows.Add(ean, name, category, price, description, quantity);
             }
 
-            // Save the inventory to a file
+            // Zapisanie danych do pliku
             BinaryFormatter formatter = new BinaryFormatter();
             using (FileStream stream = new FileStream("inventory.dat", FileMode.Create))
             {
                 formatter.Serialize(stream, inventory);
             }
 
-            // Clear the input fields
+            // Wyczyszczenie pól tekstowych
             newButton_Click(sender, e);
         }
 
