@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace InventoryTracker
 {
@@ -10,20 +11,41 @@ namespace InventoryTracker
         public InventoryTracker()
         {
             InitializeComponent();
-        }
 
+            // Sprawdzenie czy plik inventory.dat istnieje
+            if (File.Exists("inventory.dat"))
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                using (FileStream stream = new FileStream("inventory.dat", FileMode.Open))
+                {
+                    inventory = (DataTable)formatter.Deserialize(stream);
+                }
+            }
+            else
+            {
+                // Jeśli nie istnieje to jest tworzona jego instancja
+                inventory.Columns.Add("EAN");
+                inventory.Columns.Add("Name");
+                inventory.Columns.Add("Category");
+                inventory.Columns.Add("Price");
+                inventory.Columns.Add("Description");
+                inventory.Columns.Add("Quantity");
+            }
+
+            inventoryGridView.DataSource = inventory;
+        }
 
         private void InventoryTracker_Load(object sender, EventArgs e)
         {
             //inicjuje kolumny w komponencie DataGridView
-            inventory.Columns.Add("EAN");
-            inventory.Columns.Add("Name");
-            inventory.Columns.Add("Category");
-            inventory.Columns.Add("Price");
-            inventory.Columns.Add("Description");
-            inventory.Columns.Add("Quantity");
+            //inventory.Columns.Add("EAN");
+            //inventory.Columns.Add("Name");
+            //inventory.Columns.Add("Category");
+            //inventory.Columns.Add("Price");
+            //inventory.Columns.Add("Description");
+            //inventory.Columns.Add("Quantity");
 
-            inventoryGridView.DataSource = inventory;
+            //inventoryGridView.DataSource = inventory;
         }
 
         //z jakiegoś powodu usunięcie tej funkcji psuje program
@@ -53,7 +75,7 @@ namespace InventoryTracker
             String description = descriptionTextBox.Text;
             String category = (string)categoryBox.SelectedItem;
 
-            // Sprawdzenie po indiwidualnym dla produktu kodzie ean, czy dana rzecz już nie istnieje
+            // Sprawdzenie po indiwidualnym dla produktu kodzie ean, czy dana rzecz już nie istnieje. Jeśli istnieje to następuje aktualizacja
             DataRow[] foundRows = inventory.Select("EAN = '" + ean + "'");
             if (foundRows.Length > 0)
             {
@@ -68,6 +90,13 @@ namespace InventoryTracker
             {
                 // Dodanie nowego wpisu jeśli nie ma produktu z kodem ean
                 inventory.Rows.Add(ean, name, category, price, description, quantity);
+            }
+
+            // Save the inventory to a file
+            BinaryFormatter formatter = new BinaryFormatter();
+            using (FileStream stream = new FileStream("inventory.dat", FileMode.Create))
+            {
+                formatter.Serialize(stream, inventory);
             }
 
             // Clear the input fields
@@ -105,6 +134,11 @@ namespace InventoryTracker
             {
                 Console.WriteLine("There has been an error while trying to load the data for edition: " + err);
             }
+        }
+
+        private void instrukcjaLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

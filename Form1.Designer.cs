@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InventoryTracker));
             label1 = new Label();
             inventoryGridView = new DataGridView();
             newButton = new Button();
@@ -45,18 +46,20 @@
             label6 = new Label();
             label7 = new Label();
             categoryBox = new ComboBox();
+            instrukcjaLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)inventoryGridView).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
-            label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(12, 9);
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ImageAlign = ContentAlignment.TopCenter;
+            label1.Location = new Point(12, -2);
             label1.Name = "label1";
-            label1.Size = new Size(1241, 78);
+            label1.Size = new Size(1241, 33);
             label1.TabIndex = 0;
-            label1.Text = "InventoryTracker - Twoje rozwiązanie do zarządzania inwentarzem\r\n V0.1";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            label1.Text = "InventoryTracker - Twoje rozwiązanie do zarządzania inwentarzem V0.14 by Arkadiusz Kubiszewski\r\n";
+            label1.TextAlign = ContentAlignment.TopCenter;
             label1.Click += label1_Click;
             // 
             // inventoryGridView
@@ -196,11 +199,21 @@
             // categoryBox
             // 
             categoryBox.FormattingEnabled = true;
-            categoryBox.Items.AddRange(new object[] { "Żywność", "Chemia", "Owoce", "Leki", "Inne" });
+            categoryBox.Items.AddRange(new object[] { "Żywność", "Obuwie", "Ciuchy", "Chemia", "Owoce", "Leki", "Narzędzia", "RTV", "AGD", "Automotive", "Inne" });
             categoryBox.Location = new Point(903, 138);
             categoryBox.Name = "categoryBox";
             categoryBox.Size = new Size(350, 23);
             categoryBox.TabIndex = 17;
+            // 
+            // instrukcjaLabel
+            // 
+            instrukcjaLabel.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            instrukcjaLabel.Location = new Point(12, 21);
+            instrukcjaLabel.Name = "instrukcjaLabel";
+            instrukcjaLabel.Size = new Size(1241, 92);
+            instrukcjaLabel.TabIndex = 18;
+            instrukcjaLabel.Text = resources.GetString("instrukcjaLabel.Text");
+            instrukcjaLabel.Click += instrukcjaLabel_Click;
             // 
             // InventoryTracker
             // 
@@ -208,6 +221,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DodgerBlue;
             ClientSize = new Size(1265, 744);
+            Controls.Add(instrukcjaLabel);
             Controls.Add(categoryBox);
             Controls.Add(label7);
             Controls.Add(label6);
@@ -225,6 +239,7 @@
             Controls.Add(newButton);
             Controls.Add(inventoryGridView);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "InventoryTracker";
             Text = "InventoryTracker";
             Load += InventoryTracker_Load;
@@ -252,5 +267,6 @@
         private Label label6;
         private Label label7;
         private ComboBox categoryBox;
+        private Label instrukcjaLabel;
     }
 }
